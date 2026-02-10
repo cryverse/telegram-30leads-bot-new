@@ -14,6 +14,8 @@ from aiogram.fsm.state import State, StatesGroup
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
+from datetime import datetime, timedelta
+
 # ------------------------
 # LOGGING
 # ------------------------
@@ -114,7 +116,7 @@ async def process_question(message: types.Message, state: FSMContext):
         return
 
     data = await state.get_data()
-    date = datetime.now().strftime("%d.%m.%Y %H:%M")
+    date = datetime.now() + timedelta(hours=3).strftime("%d.%m.%Y %H:%M")
     username = message.from_user.username or "Не задан"
     user_id = message.from_user.id
 
