@@ -144,9 +144,9 @@ async def process_question(message: types.Message, state: FSMContext):
 # ------------------------
 # FALLBACK
 # ------------------------
-@dp.message()
-async def fallback(message: types.Message):
-    await message.answer("Чтобы оставить заявку, напишите /start")
+# @dp.message()
+# async def fallback(message: types.Message):
+#     await message.answer("Чтобы оставить заявку, напишите /start")
 
 # ------------------------
 # START
