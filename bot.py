@@ -67,8 +67,7 @@ class LeadForm(StatesGroup):
 # ------------------------
 @dp.message(Command("start"))
 async def cmd_start(message: types.Message, state: FSMContext):
-    await message.answer("Привет! 👋 Чтобы оставить заявку, нажмите любую кнопку или напишите 'да'.")
-    await message.answer("Сначала скажите, как вас зовут?")
+    await message.answer("Привет!👋 \n..... \n  \nДля начала,\nКак вас зовут?")
     await state.set_state(LeadForm.waiting_for_name)
 
 # ------------------------
@@ -101,7 +100,7 @@ async def process_phone(message: types.Message, state: FSMContext):
         return
 
     await state.update_data(phone=phone)
-    await message.answer("И последний вопрос: есть ли уточнения или комментарий?")
+    await message.answer("Что для вас самое важное в жизни?")
     await state.set_state(LeadForm.waiting_for_question)
 
 # ------------------------
