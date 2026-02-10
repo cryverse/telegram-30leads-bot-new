@@ -2,7 +2,7 @@ import logging
 import asyncio
 import os
 import json
-from datetime import datetime
+from datetime import datetime, timedelta
 import re
 
 from aiogram import Bot, Dispatcher, types
@@ -14,7 +14,7 @@ from aiogram.fsm.state import State, StatesGroup
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
-from datetime import datetime, timedelta
+
 
 # ------------------------
 # LOGGING
