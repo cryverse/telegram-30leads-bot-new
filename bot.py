@@ -15,7 +15,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 
 
 # ------------------------
-# ЛОГИ
+# LOGGING
 # ------------------------
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -38,7 +38,7 @@ dp = Dispatcher(storage=storage)
 # GOOGLE SHEETS (Railway Variable)
 # ------------------------
 GOOGLE_CREDENTIALS_JSON = os.getenv("GOOGLE_CREDENTIALS_JSON")
-GOOGLE_SHEET_NAME = "Leads"  # ← имя таблицы
+GOOGLE_SHEET_NAME = "Leads"  # имя таблицы
 
 if not GOOGLE_CREDENTIALS_JSON:
     raise RuntimeError("❌ GOOGLE_CREDENTIALS_JSON не задан")
@@ -73,7 +73,7 @@ class LeadForm(StatesGroup):
 # ------------------------
 # /start
 # ------------------------
-@dp.message(Command(commands=["start"]))
+@dp.message(Command("start"))
 async def cmd_start(message: types.Message, state: FSMContext):
     logger.info(f"Новый пользователь: {message.from_user.id}")
     await message.answer("Привет! 👋 Я помогу оставить заявку.")
@@ -130,7 +130,7 @@ async def process_question(message: types.Message, state: FSMContext):
 
 
 # ------------------------
-# Фоллбэк
+# FALLBACK
 # ------------------------
 @dp.message()
 async def fallback(message: types.Message):
