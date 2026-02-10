@@ -110,6 +110,7 @@ async def process_phone(message: types.Message, state: FSMContext):
 # ------------------------
 @dp.message(LeadForm.waiting_for_question)
 async def process_question(message: types.Message, state: FSMContext):
+    await message.answer("DEBUG: дошёл до вопроса")
     question = message.text.strip()
     if not question:
         await message.answer("Пожалуйста, напишите что-то")
